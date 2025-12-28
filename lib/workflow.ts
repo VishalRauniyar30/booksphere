@@ -25,10 +25,11 @@ export const sendEmail = async ({
 			provider: resend({ token: config.env.resendToken }),
 		},
 		body: {
-			from: 'Niket Rauniyar <vishalkgupta3321@gmail.com>',
+			from: 'BookSphere <notifications@resend.dev>',
 			to: [email],
 			subject,
 			html: message,
+			replyTo: 'vishalkgupta3321@gmail.com',
 		}
 	})
 }
