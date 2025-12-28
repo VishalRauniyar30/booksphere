@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 import { redirect } from 'next/navigation'
+import { after } from 'next/server'
 import { eq } from 'drizzle-orm'
 
 import Header from '@/components/Header'
 import { auth } from '@/auth'
-import { after } from 'next/server'
 import { db } from '@/database/drizzle'
 import { users } from '@/database/schema'
 
