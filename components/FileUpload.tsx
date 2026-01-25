@@ -40,20 +40,21 @@ const authenticator = async () => {
 
 		const data = await response.json()
 
-		// const { signature, expire, token } = data
+		const { signature, expire, token } = data
 
-		// return { token, expire, signature }
-		return data
+		return { token, expire, signature }
 	} catch (error) {
 		throw new Error(`Authentication request failed: ${error}`)
 	}
 }
 
 const FileUpload = ({ 
-	type, accept, placeholder, folder, variant, onFileChange, value
+	type, accept, placeholder, folder,
+	variant, onFileChange, value
 }: Props) => {
 
 	const ikUploadRef = useRef(null)
+	
 	const [file, setFile] = useState<{ filePath: string | null }>({
 		filePath: value ?? null
 	})

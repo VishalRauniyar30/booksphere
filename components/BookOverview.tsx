@@ -21,8 +21,10 @@ const BookOverview = async ({
 		.where(eq(users.id, userId))
 		.limit(1)
 
+	if (!user) return null
+	
 	const borrowingEligibility = {
-		isEligible: availableCopies > 0 && user?.status === "APPROVED",
+		isEligible: availableCopies > 0 && user.status === "APPROVED",
 		message: availableCopies <= 0 ? "Book is not available" : "Your are not eligible to borrow this book"
 	}
 
@@ -60,15 +62,6 @@ const BookOverview = async ({
 				<p className='mt-2 text-justify text-xl text-light-100'>
 					{description}
 				</p>
-				<Button className='mt-4 min-h-14 w-fit bg-primary text-dark-100 max-md:w-full hover:scale-105 transition-all duration-300'>
-					<Image
-						src='/icons/book.svg'
-						alt='book'
-						width={20}
-						height={20}
-					/>
-					<p className='font-bebas-neue text-xl text-dark-100'>Borrow</p>
-				</Button>
 				{user && (
 					<BorrowBook
 						bookId={id}

@@ -1,8 +1,19 @@
-import React from 'react'
+import Link from 'next/link'
+
+import BookForm from '@/components/admin/forms/BookForm'
+import { Button } from '@/components/ui/button'
 
 function NewBooksPage() {
 	return (
-		<div>NewBooksPage</div>
+		<>
+			<Button asChild className="mb-10 w-fit border border-light-300 bg-white text-xs font-medium text-dark-200 hover:bg-[#F8F8FF]">
+				<Link href="/admin/books">Go Back</Link>
+			</Button>
+
+			<section className="w-full max-w-2xl">
+				<BookForm />
+			</section>
+		</>
 	)
 }
 
